@@ -1,19 +1,86 @@
 <div class="todo-columns">
-  <div clas="row">
-    <div style="background: #787878; height: 95vh" class="col-md-3">
-      <div class="card-wrapper" style="padding: 1vw">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card-wrapper">
         <mat-card>
-          <form>
+          <form [formGroup]="todoForm">
             <mat-form-field appearance="fill">
-              <mat-label>Fill form field</mat-label>
-              <input matInput placeholder="Placeholder" />
+              <mat-label>Task name</mat-label>
+              <input
+                formControlName="item"
+                matInput
+                placeholder="Something need doing?"
+              />
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-              <mat-hint>Hint</mat-hint>
+              <mat-hint>Add a TODO</mat-hint>
             </mat-form-field>
+            <button
+              mat-raised-button
+              [disabled]="todoForm.invalid"
+              color="primary"
+            >
+              Add
+            </button>
           </form>
         </mat-card>
       </div>
     </div>
-    <div class="col-md-9"></div>
+    <div class="col-md-9">
+      <div cdkDropListGroup>
+        <div class="row">
+          <div class="col-md-4">
+            <!-- TODO -->
+            <div class="tasks-container">
+              <h2>Tasks</h2>
+
+              <div
+                cdkDropList
+                [cdkDropListData]="tasks"
+                class="tasks-list"
+                (cdkDropListDropped)="drop($event)"
+              >
+                <div class="task-box" *ngFor="let item of tasks" cdkDrag>
+                  {{ item }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- InProgress -->
+            <div class="in-progress-container">
+              <h2>In Progress</h2>
+
+              <div
+                cdkDropList
+                [cdkDropListData]="inProgress"
+                class="tasks-list"
+                (cdkDropListDropped)="drop($event)"
+              >
+                <div class="task-box" *ngFor="let item of tasks" cdkDrag>
+                  {{ item }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- Done -->
+            <div class="done-container">
+              <h2>Done</h2>
+
+              <div
+                cdkDropList
+                [cdkDropListData]="done"
+                class="tasks-list"
+                (cdkDropListDropped)="drop($event)"
+              >
+                <div class="task-box" *ngFor="let item of tasks" cdkDrag>
+                  {{ item }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
