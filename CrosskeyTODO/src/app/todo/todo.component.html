@@ -15,6 +15,7 @@
               <mat-hint>Add a TODO</mat-hint>
             </mat-form-field>
             <button
+              (click)="addTask()"
               mat-raised-button
               [disabled]="todoForm.invalid"
               color="primary"
@@ -40,7 +41,7 @@
                 (cdkDropListDropped)="drop($event)"
               >
                 <div class="task-box" *ngFor="let item of tasks" cdkDrag>
-                  {{ item }}
+                  {{ item.description }}
                 </div>
               </div>
             </div>
@@ -56,8 +57,8 @@
                 class="tasks-list"
                 (cdkDropListDropped)="drop($event)"
               >
-                <div class="task-box" *ngFor="let item of tasks" cdkDrag>
-                  {{ item }}
+                <div class="task-box" *ngFor="let item of inProgress" cdkDrag>
+                  {{ item.description }}
                 </div>
               </div>
             </div>
@@ -73,8 +74,8 @@
                 class="tasks-list"
                 (cdkDropListDropped)="drop($event)"
               >
-                <div class="task-box" *ngFor="let item of tasks" cdkDrag>
-                  {{ item }}
+                <div class="task-box" *ngFor="let item of done" cdkDrag>
+                  {{ item.description }}
                 </div>
               </div>
             </div>

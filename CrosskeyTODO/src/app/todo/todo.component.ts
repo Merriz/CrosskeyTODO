@@ -41,4 +41,11 @@ export class TodoComponent implements OnInit {
       );
     }
   }
+
+  addTask() {
+    this.tasks.push({
+      description: this.todoForm.value.item,
+      done: false,
+    });
+  }
 }
