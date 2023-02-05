@@ -13,12 +13,16 @@ import { Task } from '../model/task';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
+  @ViewChild('inputField')
+  myInputField!: ElementRef;
+
   todoForm!: FormGroup;
   tasks: Task[] = [];
   inProgress: Task[] = [];
   done: Task[] = [];
   updateIndex!: any;
   editingEnabled: boolean = false;
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -63,9 +67,6 @@ export class TodoComponent implements OnInit {
   deleteDone(i: number) {
     this.done.splice(i, 1);
   }
-
-  @ViewChild('inputField')
-  myInputField!: ElementRef;
 
   editTask(item: Task, i: number) {
     this.todoForm.controls['item'].setValue(item.description);
