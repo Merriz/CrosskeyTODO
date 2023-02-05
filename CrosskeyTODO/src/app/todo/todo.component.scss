@@ -48,6 +48,25 @@ mat-hint {
 
 .card-wrapper {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.comment-card {
+  font-size: 2rem;
+  padding-left: 1.5rem;
+  p {
+    line-height: 2.4rem;
+  }
+}
+
+.link-card {
+  padding: 1rem 1rem 1rem 1.5rem;
+}
+
+.link-list {
+  font-size: 2rem;
 }
 
 .button-wrapper {

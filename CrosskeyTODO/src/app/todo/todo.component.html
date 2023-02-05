@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <div class="card-wrapper">
-        <mat-card>
+        <mat-card class="input-card">
           <form [formGroup]="todoForm">
             <mat-form-field appearance="fill">
               <mat-label>Task name</mat-label>
@@ -35,6 +35,46 @@
               </button>
             </div>
           </form>
+        </mat-card>
+        <mat-card class="comment-card">
+          <p>
+            I've never touched Angular prior to this, so I've obviously watched
+            tutorials to put this together.
+          </p>
+          <p>
+            I tried using Bootstrap for the first time to save a bit of time but
+            it just felt like still having training wheels on as an adult. A
+            mistake on my part..
+          </p>
+          <p>
+            It did however give me some insight into the framework and I must
+            say the structure feels quite alright! In hindsight, if I had time
+            to do the assignment again I definitely would've split the main
+            component into more parts.
+          </p>
+        </mat-card>
+        <mat-card class="link-card">
+          <mat-list class="link-list">
+            Links to previous projects:
+            <mat-list-item
+              ><a
+                href="https://sjokvarteret.ax"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sjokvarteret.ax
+              </a></mat-list-item
+            >
+            <mat-list-item
+              ><a
+                href="https://raddabarnen.ax/material"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Feature to Raddabarnen.ax
+              </a></mat-list-item
+            >
+          </mat-list>
         </mat-card>
       </div>
     </div>
