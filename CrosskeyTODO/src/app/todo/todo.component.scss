@@ -42,7 +42,7 @@
 
 .tasks-list {
   border: solid 1px #ccc;
-  min-height: 60px;
+  min-height: 77px;
   background: white;
   border-radius: 4px;
   overflow: hidden;
@@ -50,7 +50,8 @@
 }
 
 .task-box {
-  padding: 20px 10px;
+  padding: 10px 10px 10px 20px;
+  min-height: 75px;
   border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
@@ -60,7 +61,7 @@
   box-sizing: border-box;
   cursor: move;
   background: white;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .cdk-drag-preview {
@@ -89,6 +90,8 @@
 .list-title {
   margin: 0 auto;
   text-align: center;
+  font-family: "Univers";
+  font-size: 1.4rem;
   padding: 0.8rem;
   background-color: #444444;
   border-radius: 4px;
@@ -96,5 +99,12 @@
 }
 
 .col-md-9 {
-  margin-top: 1rem;
+  padding-top: 1rem;
+  background-color: #e1e1e1;
+  justify-content: center;
+  display: flex;
+}
+
+.row {
+  margin: 0;
 }
