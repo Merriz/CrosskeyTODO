@@ -1,10 +1,10 @@
 .col-md-3 {
   height: 95vh;
-  background: #787878;
+  background: #444444;
 }
 
 .card-wrapper {
-  padding: 1vw;
+  padding: 1rem;
 }
 
 .mat-mdc-form-field {
@@ -12,11 +12,18 @@
 }
 
 .mat-mdc-card {
-  padding: 1vh;
+  padding: 1rem;
 }
 
 .mat-mdc-form-field-subscript-wrapper {
   top: 0.3rem;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.8rem;
 }
 
 .mat-mdc-raised-button {
@@ -77,4 +84,17 @@
 
 .tasks-list.cdk-drop-list-dragging .task-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.list-title {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.8rem;
+  background-color: #444444;
+  border-radius: 4px;
+  color: #ffdd00;
+}
+
+.col-md-9 {
+  margin-top: 1rem;
 }

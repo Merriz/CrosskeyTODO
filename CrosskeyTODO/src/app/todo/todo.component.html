@@ -14,24 +14,26 @@
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
               <mat-hint>Add a TODO</mat-hint>
             </mat-form-field>
-            <button
-              *ngIf="!editingEnabled"
-              (click)="addTask()"
-              mat-raised-button
-              [disabled]="todoForm.invalid"
-              color="primary"
-            >
-              Add
-            </button>
-            <button
-              *ngIf="editingEnabled"
-              (click)="updateTask()"
-              mat-raised-button
-              [disabled]="todoForm.invalid"
-              color="primary"
-            >
-              Update
-            </button>
+            <div class="button-wrapper">
+              <button
+                *ngIf="!editingEnabled"
+                (click)="addTask()"
+                mat-raised-button
+                [disabled]="todoForm.invalid"
+                color="primary"
+              >
+                Add
+              </button>
+              <button
+                *ngIf="editingEnabled"
+                (click)="updateTask()"
+                mat-raised-button
+                [disabled]="todoForm.invalid"
+                color="primary"
+              >
+                Update
+              </button>
+            </div>
           </form>
         </mat-card>
       </div>
@@ -42,7 +44,7 @@
           <div class="col-md-4">
             <!-- TODO -->
             <div class="tasks-container">
-              <h2>
+              <h2 class="list-title">
                 Tasks
                 <span *ngIf="tasks.length > 0"> - {{ tasks.length }}</span>
               </h2>
@@ -82,7 +84,7 @@
           <div class="col-md-4">
             <!-- InProgress -->
             <div class="in-progress-container">
-              <h2>
+              <h2 class="list-title">
                 In Progress
                 <span *ngIf="inProgress.length > 0">
                   - {{ inProgress.length }}</span
@@ -117,7 +119,7 @@
           <div class="col-md-4">
             <!-- Done -->
             <div class="done-container">
-              <h2>
+              <h2 class="list-title">
                 Done <span *ngIf="done.length > 0"> - {{ done.length }}</span>
               </h2>
 
@@ -136,7 +138,7 @@
                   <div class="box">
                     <button
                       mat-icon-button
-                      color="$mat-light-green"
+                      color="accent"
                       (click)="deleteDone(i)"
                     >
                       <mat-icon>check_circle</mat-icon>
