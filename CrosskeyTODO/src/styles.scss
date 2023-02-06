@@ -6,11 +6,15 @@
   --crosskey-turqoise: #00b0b9;
 }
 
+/* The font on crosskey.io was locked behind an Adobe subscription
+   so I opted to take the one from crosskey.fi instead */
 @font-face {
   font-family: "Univers";
   src: local("Univers"), url(./assets/fonts/Univers.otf) format("truetype");
 }
 
+/* A nifty hack I sometimes use to make 1rem = 10px
+   it makes it easy to translate imported component measurements */
 html {
   font-size: 62.5%;
 }
