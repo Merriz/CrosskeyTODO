@@ -29,6 +29,7 @@ export class TodoComponent implements OnInit {
     this.todoForm = this.fb.group({
       item: ['', Validators.required],
     });
+    this.restoreData();
   }
 
   drop(event: CdkDragDrop<Task[]>) {
@@ -38,6 +39,7 @@ export class TodoComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+      this.saveData();
     } else {
       transferArrayItem(
         event.previousContainer.data,
@@ -45,6 +47,7 @@ export class TodoComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+      this.saveData();
     }
   }
 
@@ -58,14 +61,17 @@ export class TodoComponent implements OnInit {
 
   deleteTask(i: number) {
     this.tasks.splice(i, 1);
+    this.saveData();
   }
 
   deleteTaskInProgress(i: number) {
     this.inProgress.splice(i, 1);
+    this.saveData();
   }
 
   deleteDone(i: number) {
     this.done.splice(i, 1);
+    this.saveData();
   }
 
   editTask(item: Task, i: number) {
@@ -80,5 +86,18 @@ export class TodoComponent implements OnInit {
     this.tasks[this.updateIndex].done = false;
     this.todoForm.reset();
     this.editingEnabled = false;
+    this.saveData();
+  }
+
+  saveData() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    localStorage.setItem('inProgress', JSON.stringify(this.inProgress));
+    localStorage.setItem('done', JSON.stringify(this.done));
+  }
+
+  restoreData() {
+    this.tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    this.inProgress = JSON.parse(localStorage.getItem('inProgress') || '[]');
+    this.done = JSON.parse(localStorage.getItem('done') || '[]');
   }
 }

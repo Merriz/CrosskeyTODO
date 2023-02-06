@@ -17,7 +17,7 @@
             <div class="button-wrapper">
               <button
                 *ngIf="!editingEnabled"
-                (click)="addTask()"
+                (click)="addTask(); saveData()"
                 mat-raised-button
                 [disabled]="todoForm.invalid"
                 color="primary"
